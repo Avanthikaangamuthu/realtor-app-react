@@ -120,6 +120,7 @@ export default function CreateListing() {
       ...formData,
       imgUrls,
       geolocation,
+      userRef: auth.currentUser.uid,
       timeStamp: serverTimestamp(),
     };
     delete formDataCopy.images;
@@ -147,7 +148,7 @@ export default function CreateListing() {
 
                 <button type='button' id='type' value="rent" onClick={onChange} className={`ml-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition ease-in-out duration-150 w-full ${type==='sale' ? "bg-white text-black" : "bg-slate-600 text-white"}`}>Rent</button>
             </div>
-            <p className='text-lg mt-6 font-semibold'>Name</p>
+            <p className='text-lg mt-6 font-semibold'>Property Name</p>
             <input type="text" id="name" value={name} onChange={onChange} placeholder="Name" maxLength='32' required className='w-full px-4 py-2 text-xl text-gray-700 bg-white border border-gray-300 rounded transition duration-150 ease-in-out shadow-md focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6'/>
 
             <div className='flex space-x-6 mb-6'>
@@ -232,7 +233,7 @@ export default function CreateListing() {
             <div className='mb-6'>
               <p className='text-lg font-semibold'>Images</p>
               <p className='text-gray-600'>The first image will be cover (max=6)</p>
-              <input type='file' id='image' onChange={onChange} accept=".jpg,.png,.jpeg" multiple required className='w-full px-3 py-2 text-gray-700 bg-white border border-gray-300 transition duration-150 ease-in-out rounded shadow-md focus:bg-white focus:border-slate-600'/>
+              <input type='file' id='image' onChange={onChange} accept=".jpg,.png,.jpeg,.jfif" multiple required className='w-full px-3 py-2 text-gray-700 bg-white border border-gray-300 transition duration-150 ease-in-out rounded shadow-md focus:bg-white focus:border-slate-600'/>
             </div>
 
             <button type='submit' className='mb-6 w-full bg-blue-600 text-white px-7 py-3 font-medium text-sm uppercase rounded shadow-md hover:shadow-lg hover:bg-blue-700 active:bg-blue-800 active:shadow-lg transition ease-in-out duration-150'>Create Listing</button>
