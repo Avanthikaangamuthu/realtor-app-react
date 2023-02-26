@@ -18,7 +18,6 @@ function Listing(){
     const [listing, setListing] = useState(null);
     const [loading, setLoading] = useState(true);
     const [contactLandlord, setContactLandlord] = useState(false);
-    const position = [13.117150,80.251880];
 
     SwiperCore.use(Autoplay, Pagination, Navigation);
 
@@ -38,7 +37,7 @@ function Listing(){
     }
     return(
         <main>
-            <Swiper slidesPerView={1} navigation pagination={{ type: "progressbar" }} effect="fade" modules={[EffectFade]} autoplay={{ delay: 3000 }}>
+            <Swiper slidesPerView={1} navigation pagination effect="fade" modules={[EffectFade]} autoplay={{ delay: 3000 }}>
                 {listing.imgUrls.map((url, index) => (
                 <SwiperSlide key={index}>
                     <div
