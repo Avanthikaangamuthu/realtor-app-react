@@ -95,7 +95,7 @@ function Home() {
           </Link>
           <ul className='sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
             {rentListings.map((listing)=>(
-              <ListingItem key={listing.id} Glisting={listing.data} id={listing.id}/>
+              <ListingItem key={listing.id} listing={listing.data} id={listing.id}/>
             ))}
           </ul>
         </div>
